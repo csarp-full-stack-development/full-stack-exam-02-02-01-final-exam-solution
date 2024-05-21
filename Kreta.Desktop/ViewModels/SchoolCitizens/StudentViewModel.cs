@@ -22,6 +22,12 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         [ObservableProperty] private string _womanStudentNumber = string.Empty;
         [ObservableProperty] private string _manStudentNumber = string.Empty;
 
+        [ObservableProperty] public uint _fileteredMinBirthYear  = 0;
+        [ObservableProperty] public uint _filteredMaxBirthYear  = uint.MaxValue;
+        [ObservableProperty] public string _serchedName  = string.Empty;
+        [ObservableProperty] public bool _isHaveGenderSearching  = false;
+        [ObservableProperty] public bool _isWooman  = true;
+
 
         public StudentViewModel()
         {
@@ -79,14 +85,53 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
             }
         }
 
-        private async Task UpdateView()
+        [RelayCommand]
+        private async Task DoSearchingAndFiltering()
+        {
+            if (_studentService != null)
+            {
+                List<Student> students = await _studentService.SearchAndFilterStudents(this.ToStudentQueryParameters());
+                Students = new ObservableCollection<Student>(students);
+                await UpdateView(false);
+            }
+        }
+
+        [RelayCommand]
+        private async Task DoResetFilterAndSerachParameter()
+        {
+            SerchedName = string.Empty;
+            FileteredMinBirthYear = 0;
+            FilteredMaxBirthYear = uint.MaxValue;
+            IsHaveGenderSearching = false;
+            IsWooman = true;
+            await UpdateView();
+        }
+
+
+        private async Task UpdateView(bool reloadData = true)
         {
             if (_studentService is not null)
             {
-                List<Student> students = await _studentService.SelectAllAsync();
-                Students = new ObservableCollection<Student>(students);
+                if (reloadData)
+                {
+                    List<Student> students = await _studentService.SelectAllAsync();
+                    Students = new ObservableCollection<Student>(students);
+                }
+                SetFilteredMinMaxYear();
             }
+        }
 
+        private void SetFilteredMinMaxYear()
+        {
+            if (Students is not null && Students.Any())
+            {
+                FileteredMinBirthYear = (uint)Students.ToList().Select(student => student.BirthDay.Year).Min();
+                FilteredMaxBirthYear = (uint)Students.ToList().Select(student => student.BirthDay.Year).Max();
+            }
+            else
+            {
+                FileteredMinBirthYear = FilteredMaxBirthYear = (uint)DateTime.Now.Year;
+            }
         }
     }
 }

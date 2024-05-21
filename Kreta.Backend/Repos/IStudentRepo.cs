@@ -1,4 +1,5 @@
 ﻿using Kreta.Shared.Models.SchoolCitizens;
+using Kreta.Shared.Parameters;
 
 namespace Kreta.Backend.Repos
 {
@@ -10,5 +11,6 @@ namespace Kreta.Backend.Repos
 
         public IQueryable<Student> SelectStudentsWithoutEducationLevel();
         public int GetNumberOfGener(bool isWoman);
+        public IQueryable<Student> GetStudents(StudentQueryParameters parameters);
     }
 }
