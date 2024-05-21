@@ -51,7 +51,9 @@ namespace Kreta.Backend.Extensions
 
             services.AddScoped<ISchoolClassStudentsRepo,SchoolClassStudentsRepo<KretaInMemoryContext>>();
             services.AddScoped<ISchoolClassSubjectsRepo, SchoolClassSubjectsRepo<KretaInMemoryContext>>();
-            services.AddScoped<ITeacherTeachInSchoolClass,TeacherTeachInSchoolClassRepo<KretaInMemoryContext>>();            
+            services.AddScoped<ITeacherTeachInSchoolClass,TeacherTeachInSchoolClassRepo<KretaInMemoryContext>>();
+
+            services.AddScoped<IStatisticRepo, StatisticRepo>();
 
             services.AddScoped<IRepositoryManager, RepositoryManager>();
         }

@@ -8,7 +8,11 @@
              xmlns:local="clr-namespace:Kreta.Desktop.Views.ControlPanel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <StackPanel>
         <Label>Vezérlőpúlt</Label>
-    </Grid>
+        <Button MaxWidth="180" HorizontalAlignment="Left" Command="{Binding DoGetDataCommand}">Adatok lekérése</Button>
+        <TextBlock Text="{Binding NumberOfParentString}"></TextBlock>
+        <TextBlock Text="{Binding GenderNumberOfParentString}"></TextBlock>
+        <TextBlock Text="{Binding NumberOfStudentOfSchoolClassString}"></TextBlock>
+    </StackPanel>
 </UserControl>
