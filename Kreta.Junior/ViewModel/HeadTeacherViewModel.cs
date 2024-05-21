@@ -1,7 +1,7 @@
-﻿using Kreta.Junior.Model;
-using Kreta.Junior.Repo;
+﻿using Kreta.Console.Model;
+using Kreta.Console.Repo;
 
-namespace Kreta.Junior.ViewModel
+namespace Kreta.Console.ViewModel
 {
     public class HeadTeacherViewModel
     {

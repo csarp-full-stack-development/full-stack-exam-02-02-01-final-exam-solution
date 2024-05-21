@@ -18,6 +18,9 @@ namespace Kreta.Console.ViewModel
             awardedStudentRepo.Add(new AwardedStudent("Mindenttudo Misi", 16, 6514, true, "9.b", false));
         }
 
+        public string TundeStudent => tunde.ToString();
+        public string DenesStudent => denes.ToString();
+
         public string Older
         {
             get

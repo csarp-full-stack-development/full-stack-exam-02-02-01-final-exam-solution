@@ -1,4 +1,4 @@
-﻿namespace Kreta.Junior.Repo
+﻿namespace Kreta.Console.Repo
 {
     public class HeadTeacherRepo
     {

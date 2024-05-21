@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace Kreta.Junior
+namespace Kreta.Console
 {
     /// <summary>
     /// Interaction logic for App.xaml
