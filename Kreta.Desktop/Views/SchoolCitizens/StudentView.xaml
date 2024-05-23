@@ -53,8 +53,8 @@
                 <CheckBox IsChecked="{Binding IsHaveGenderSearching}" Margin="2 6 0 0"></CheckBox>
                 <RadioButton GroupName="Gender" IsChecked="{Binding IsWooman}" Margin="4 6 0 0">nő</RadioButton>
                 <RadioButton GroupName="Gender" Margin="4 6 10 0">férfi</RadioButton>
-                <Button MinWidth="80" Margin="10 0 0 2" Command="{Binding DoSearchingAndFilteringCommand}">Szűrés visszavonása</Button>
-                <Button MinWidth="80" Margin="3 0 10 2" Command="{Binding DoResetFilterAndSerachParameterCommand}">Vissza</Button>
+                <Button MinWidth="80" Margin="10 0 0 2" Command="{Binding DoSearchingAndFilteringCommand}">Szűrés</Button>
+                <Button MinWidth="80" Margin="3 0 10 2" Command="{Binding DoResetFilterAndSerachParameterCommand}">Szűrés visszavonása</Button>
             </StackPanel>
         </Expander>
         <Label Grid.Row="3" Grid.Column="0">Vezeték név:</Label>
